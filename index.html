@@ -5,15 +5,53 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 
-		<title>Base Project</title>
+		<title>Chess Rating</title>
 
 		<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" charset="utf-8" />
-		<!-- <link rel="localizations" href="localizations/lang.json" type="application/vnd.oftn.l10n+json"/> -->
-
 		<script type="text/javascript" src="js/preload.js"></script>
 	</head>
 	<body>
+		<div class="wrapper">
 
+			<section class="form">
+				<header>
+					ELO Rating Calculator
+				</header>
+				<fieldset>
+					<div class="input_holder">
+						<label for="player_1_rating">White ELO</label>
+						<div class="fancy_input"><input type="text" id="player_1_rating" name="player_1_rating" value="1200" size="35" class="textInput"></div>
+					</div>
+
+					<div class="input_holder">
+						<label for="player_2_rating">Black ELO</label>
+						<div class="fancy_input"><input type="text" id="player_2_rating" name="player_2_rating" value="1200" size="35" class="textInput"></div>
+					</div>
+
+					<div class="input_holder radio_holder">
+						<p class="radio_label">Winner</p>
+						<ul class="blockLabels">
+							<li><label><input type="radio" value="white" name="winner"> White</label></li>
+							<li><label><input type="radio" value="black" name="winner"> Black</label></li>
+							<li><label><input type="radio" value="draw" name="winner" checked> Draw</label></li>
+						</ul>
+					</div>
+
+					<div class="submit_holder"><a href="#" class="submit" onclick="calculate(); return false;">Submit</a></div>
+				</fieldset>
+			</section>
+
+			<section class="output">
+				<header>
+					New ELO Ratings
+				</header>
+				<section class="results">
+					<div>White: <span id="player_1_new_rating"></span></div>
+					<div>Black: <span id="player_2_new_rating"></span></div>
+				</section>
+			</section>
+
+		</div>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
