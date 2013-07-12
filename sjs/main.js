@@ -4,6 +4,10 @@
 
 $('input[type=text]').numeric({ decimal: false, negative: false });
 $('.fancy_input :input').fancyInput();
+$('input[type=text]').focus(function () {
+	$(this).val('');
+	$(this).next().html('');
+});
 
 var result_1 = 0,
 	result_2 = 0,
@@ -46,8 +50,8 @@ function calculate() {
 	diff_1 = ((rating_2 - rating_1) / 400) + 1;
 	diff_2 = ((rating_1 - rating_2) / 400) + 1;
 
-	win_expectancy_1 = 1 / ( Math.pow( 10, diff_1 ) );
-	win_expectancy_2 = 1 / ( Math.pow( 10, diff_2 ) );
+	win_expectancy_1 = Math.min ( 1, Math.max(0, 1 / ( Math.pow( 10, diff_1 ) ) ) );
+	win_expectancy_2 = Math.min ( 1, Math.max(0, 1 / ( Math.pow( 10, diff_2 ) ) ) );
 
 	new_rating_1 = Math.max( 100, Math.round(rating_1 + K_1 * (result_1 - win_expectancy_1)));
 	new_rating_2 = Math.max( 100, Math.round(rating_2 + K_2 * (result_2 - win_expectancy_2)));
