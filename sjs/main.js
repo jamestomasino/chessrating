@@ -2,7 +2,7 @@
 //= require lib/jquery.numeric
 //= require lib/fancyInput
 
-$('input[type=text]').numeric();
+$('input[type=text]').numeric({ decimal: false, negative: false });
 $('.fancy_input :input').fancyInput();
 
 var result_1 = 0,
@@ -54,7 +54,7 @@ function calculate() {
 
 	document.getElementById('player_1_new_rating').innerHTML = String(new_rating_1);
 	document.getElementById('player_2_new_rating').innerHTML = String(new_rating_2);
-
+	$('.output').show();
 }
 
 

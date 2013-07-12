@@ -3,6 +3,7 @@
 @import "compass/reset";
 @import "compass/css3";
 @import "fancyInput";
+@import "sassy-buttons";
 
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One);
 @include font-face("Raleway", font-files( "../fonts/raleway.woff", "../fonts/raleway.otf", "../fonts/raleway.ttf", "../fonts/raleway.svg"), "../fonts/raleway.eot");
@@ -20,14 +21,20 @@ body {
 	background-color: #A8A8A8;
 	height:100%;
 	position:relative;
-	background:-webkit-radial-gradient(#205983, #0A2742);
-	background:radial-gradient(#205983, #0A2742);
+	@include background( radial-gradient(#205983, #0A2742) );
 }
 
 .wrapper {
 	position: relative;
-	max-width: 500px;
+	width: 500px;
 	margin: 0 auto;
+
+
+	.label {
+		display: inline-block;
+		margin-left: 63px;
+		width: 200px;
+	}
 
 	.form {
 		margin: 50px 0;
@@ -67,11 +74,63 @@ body {
 					padding:8px 20px;
 					background:rgba(0,0,0,.4);
 				}
+
+				&.radio_holder {
+					text-align: center;
+					width: 220px;
+					margin: 30px auto;
+				}
+
+				.radio_label {
+					margin: 30px auto;
+				}
+
+				.radio_group {
+
+					input[type="radio"].toggle {
+						display: none;
+					}
+
+					input[type="radio"].toggle + label {
+						@include background-image(linear-gradient(rgba(black, 0.2), rgba(black, 0.4)));
+						padding: 10px;
+						cursor: default;
+						border: 1px solid rgba(white, 0.4);
+					}
+
+					input[type="radio"].toggle:checked + label {
+						@include background-image(linear-gradient(rgba(black, 0.5), rgba(black, 0.8)));
+						@include box-shadow(rgba(41, 41, 41, 0.2), 0 1px 6px inset, rgba(0, 0, 0, 0.05) 0 1px 2px);
+						@include text-shadow( rgba(0,0,0,.6) 0 2px 5px );
+						color: #E6E6E6;
+					}
+
+					input[type="radio"].toggle:checked + label.btn:hover {
+					}
+
+					input[type="radio"].toggle-left + label {
+						@include border-left-radius(10px);
+					}
+
+					input[type="radio"].toggle-both + label {
+					}
+
+					input[type="radio"].toggle-right + label {
+						@include border-right-radius(10px);
+					}
+				}
+			}
+
+
+			.submit {
+				@include sassy-button("shiny", 10px, 19px, #4ba3cc);
+				margin-left: 150px;
 			}
 		}
 	}
 
 	.output{
+		display: none;
 		@include border-radius(30px);
 		@include box-shadow(black 2px 2px 10px);
 
@@ -91,6 +150,26 @@ body {
 			@include border-bottom-radius(30px);
 			background-color: #fff;
 			padding: 40px;
+			font-size: 22px;
+
+			div {
+				margin-bottom: 30px;
+			}
+
+			.new_rating {
+				@include border-radius(10px);
+				@include box-shadow(rgba(white, 0.15) 0 1px 0, rgba(black,0.2) 0 2px 4px inset, rgba(white, 0.1) 0 0 12px);
+				@include text-shadow( rgba(0,0,0,.6) 0 2px 5px );
+				padding: 10px;
+				letter-spacing: 2px;
+				font-weight: 400;
+				background-color: rgba(0,0,0,1);
+				color: #fff;
+				padding:8px 20px;
+				background:rgba(0,0,0,.4);
+				font-family:'Fjalla One', sans-serif;
+
+			}
 
 		}
 	}
@@ -102,16 +181,16 @@ a {
 }
 
 /*.fancyInput{*/
-	/*max-width:80%;*/
-	/*min-width:50%;*/
-	/*font-size:60px;*/
-	/*color:#FFF;*/
-	/*vertical-align:middle;*/
-	/*line-height:1.3;*/
-	/*overflow:hidden;*/
-	/*text-align:left;*/
-	/*box-shadow:0 1px 0 rgba(255,255,255,.15), 0 2px 4px rgba(0,0,0,.2) inset, 0 0 12px rgba(255,255,255,.1);*/
-	/*padding:8px 20px;*/
-	/*background:rgba(0,0,0,.1);*/
-	/*border-radius:10px;*/
+/*max-width:80%;*/
+/*min-width:50%;*/
+/*font-size:60px;*/
+/*color:#FFF;*/
+/*vertical-align:middle;*/
+/*line-height:1.3;*/
+/*overflow:hidden;*/
+/*text-align:left;*/
+/*box-shadow:0 1px 0 rgba(255,255,255,.15), 0 2px 4px rgba(0,0,0,.2) inset, 0 0 12px rgba(255,255,255,.1);*/
+/*padding:8px 20px;*/
+/*background:rgba(0,0,0,.1);*/
+/*border-radius:10px;*/
 /*}*/
