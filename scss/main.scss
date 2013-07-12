@@ -2,7 +2,6 @@
 @import "compass";
 @import "compass/reset";
 @import "compass/css3";
-@import "fancyInput";
 @import "sassy-buttons";
 
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One);
@@ -23,6 +22,7 @@ body {
 	height:100%;
 	position:relative;
 	@include background( radial-gradient(#205983, #0A2742) );
+	overflow: auto;
 }
 
 .wrapper {
@@ -63,17 +63,25 @@ body {
 			.input_holder {
 				margin-bottom: 15px;
 
-				.fancy_input {
+				.old_rating {
 					@include border-radius(10px);
 					@include box-shadow(rgba(white, 0.15) 0 1px 0, rgba(black,0.2) 0 2px 4px inset, rgba(white, 0.1) 0 0 12px);
-					padding: 10px;
-					font-size: 24px;
-					letter-spacing: 2px;
-					font-weight: 400;
-					background-color: rgba(0,0,0,1);
-					color: #fff;
-					padding:8px 20px;
+					@include text-shadow( rgba(0,0,0,.6) 0 2px 5px );
+					@include box-sizing(border-box);
 					background:rgba(0,0,0,.4);
+					width: 90px;
+					color: #fff;
+					padding: 10px;
+					border: none;
+					padding:8px 20px;
+					font-family:'Fjalla One', sans-serif;
+					font-size: 22px;
+					font-weight: 400;
+					letter-spacing: 2px;
+
+					&:focus {
+						outline: none;
+					}
 				}
 
 				&.radio_holder {
@@ -124,8 +132,9 @@ body {
 
 
 			.submit {
-				@include sassy-button("shiny", 10px, 19px, #4ba3cc);
-				margin-left: 150px;
+				//#205983, #0A2742
+				@include sassy-button("shiny", 10px, 19px, #205983);
+				margin: 20px 0 0 150px;
 			}
 		}
 	}
@@ -158,13 +167,15 @@ body {
 			}
 
 			.new_rating {
+				@include box-sizing(border-box);
 				@include border-radius(10px);
 				@include box-shadow(rgba(white, 0.15) 0 1px 0, rgba(black,0.2) 0 2px 4px inset, rgba(white, 0.1) 0 0 12px);
 				@include text-shadow( rgba(0,0,0,.6) 0 2px 5px );
+				display: inline-block;
+				width: 90px;
 				padding: 10px;
 				letter-spacing: 2px;
 				font-weight: 400;
-				background-color: rgba(0,0,0,1);
 				color: #fff;
 				padding:8px 20px;
 				background:rgba(0,0,0,.4);
