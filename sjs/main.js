@@ -1,6 +1,3 @@
-//= require lib/jquery-1.9.1.min
-//= require lib/jquery.numeric
-
 $('input[type=text]').numeric({ decimal: false, negative: false });
 $('input[type=text]').focus(function () {
 	$(this).val('');

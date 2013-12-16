@@ -3,8 +3,9 @@
 target: ./js
 paths:
 assets:
+- sjs/head.js
+- sjs/libs.js
 - sjs/main.js
-- sjs/preload.js
 manifest: false
 digest: false
 gzip: true
